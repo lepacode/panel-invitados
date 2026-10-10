@@ -275,7 +275,7 @@ body {
     padding: 0.45rem 0;
 }
 
-.invitado__miembro + .invitado__miembro {
+.invitado__miembro+.invitado__miembro {
     border-top: 1px solid #f7ebf1;
 }
 
@@ -357,6 +357,47 @@ body {
     transform: translateY(-1px);
 }
 
+.restricciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+}
+
+.restriccion {
+    font-family: var(--font);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #6a6a6a;
+    background-color: transparent;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.restriccion:hover {
+    background-color: #fdedf4;
+    color: #ec2c87;
+}
+
+.restriccion_activa {
+    background-color: #fdedf4;
+    color: #ec2c87;
+}
+
+.restriccion__num {
+    font-weight: 700;
+    color: #ec2c87;
+}
+
+.restricciones__sep {
+    font-size: 0.75rem;
+    color: #c9a3b4;
+}
+
 .invitado_oculto {
     display: none;
 }
@@ -374,7 +415,7 @@ body {
     animation: fade_slide_in 0.35s ease both;
 }
 
-.resultado + .resultado {
+.resultado+.resultado {
     margin-top: 0.55rem;
 }
 
@@ -911,48 +952,7 @@ body {
         gap: 1rem;
     }
 
-.restricciones {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.5rem;
-}
-
-.restriccion {
-    font-family: var(--font);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #6a6a6a;
-    background-color: transparent;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.restriccion:hover {
-    background-color: #fdedf4;
-    color: #ec2c87;
-}
-
-.restriccion_activa {
-    background-color: #fdedf4;
-    color: #ec2c87;
-}
-
-.restriccion__num {
-    font-weight: 700;
-    color: #ec2c87;
-}
-
-.restricciones__sep {
-    font-size: 0.75rem;
-    color: #c9a3b4;
-}
-
-.buscador {
+    .buscador {
         padding: 1rem 1.25rem;
     }
 

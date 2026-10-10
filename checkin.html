@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Control de portería para registrar la llegada de los invitados.">
     <title>Check-in de invitados</title>
-    <link rel="stylesheet" href="css/checkin.css">
+    <link rel="stylesheet" href="css/checkin.css?v=1">
 </head>
 
 <body>
@@ -35,12 +35,14 @@
         <section class="main__section main__section_buscador" aria-label="Buscar invitado o mesa">
             <div class="buscador">
                 <span class="buscador__icono" aria-hidden="true">
-                    <svg class="buscador__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="7"/>
-                        <path d="m21 21-4.3-4.3"/>
+                    <svg class="buscador__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m21 21-4.3-4.3" />
                     </svg>
                 </span>
-                <input class="buscador__input" id="buscador" type="search" placeholder="Buscar invitado o mesa..." autocomplete="off">
+                <input class="buscador__input" id="buscador" type="search" placeholder="Buscar invitado o mesa..."
+                    autocomplete="off">
             </div>
         </section>
 
@@ -71,15 +73,16 @@
     <div class="exito" id="exito" aria-hidden="true">
         <div class="exito__caja">
             <svg class="exito__svg" viewBox="0 0 52 52" fill="none">
-                <circle class="exito__circulo" cx="26" cy="26" r="24" stroke="currentColor" stroke-width="3"/>
-                <path class="exito__palomita" d="M14 27l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="exito__circulo" cx="26" cy="26" r="24" stroke="currentColor" stroke-width="3" />
+                <path class="exito__palomita" d="M14 27l8 8 16-16" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <p class="exito__texto">Check-in confirmado</p>
         </div>
     </div>
 
-    <script src="js/datos.js"></script>
-    <script src="js/checkin.js"></script>
+    <script src="js/datos.js?v=1"></script>
+    <script src="js/checkin.js?v=1"></script>
 
 </body>
 
