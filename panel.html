@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de gestión del evento: invitados, confirmaciones, restricciones y canciones.">
+    <title>Panel de control</title>
+    <link rel="stylesheet" href="css/panel.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <p class="header__eyebrow">Organizá tu fiesta</p>
+        <h1 class="header__title">Gestión del evento</h1>
+    </header>
+
+    <main class="main">
+
+        <section class="main__section" aria-label="Opciones de gestión">
+            <div class="card">
+
+                <div class="card__icon" aria-hidden="true">
+                    <svg class="card__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>
+                    </svg>
+                </div>
+
+                <h2 class="card__title">Lista de invitados</h2>
+                <p class="card__desc">Administra las personas invitadas a tu evento.</p>
+
+                <a class="card__link" href="invitados.html">
+                    <span class="card__text">Ver lista</span>
+                    <span class="card__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card__icon" aria-hidden="true">
+                    <svg class="card__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                </div>
+
+                <h2 class="card__title">Playlist</h2>
+                <p class="card__desc">Descubrí las canciones que tus invitados quieren escuchar en la fiesta.</p>
+
+                <a class="card__link" href="playlist.html">
+                    <span class="card__text">Ver playlist</span>
+                    <span class="card__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card__icon" aria-hidden="true">
+                    <svg class="card__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v12"/>
+                        <path d="m7 10 5 5 5-5"/>
+                        <path d="M5 21h14"/>
+                    </svg>
+                </div>
+
+                <h2 class="card__title">Descargar información</h2>
+                <p class="card__desc">Generá un PDF con toda la información de tus invitados y la playlist de la fiesta.</p>
+
+                <a class="card__link" href="#" id="descargar_pdf">
+                    <span class="card__text">Descargar PDF</span>
+                    <span class="card__arrow" aria-hidden="true">&darr;</span>
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card__icon" aria-hidden="true">
+                    <svg class="card__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/>
+                        <path d="M8 6H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2"/>
+                        <path d="m9 14 2 2 4-4"/>
+                    </svg>
+                </div>
+
+                <h2 class="card__title">Check-in de invitados</h2>
+                <p class="card__desc">Registrá la llegada de cada invitado el día del evento.</p>
+
+                <a class="card__link" href="checkin.html">
+                    <span class="card__text">Hacer check-in</span>
+                    <span class="card__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <button class="fab" type="button" aria-label="Volver arriba">
+        <svg class="fab__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="js/datos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/stylesPDF.js"></script>
+    <script src="js/panel.js"></script>
+
+</body>
+
+</html>

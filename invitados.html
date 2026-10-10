@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de invitados del evento: buscador, filtros y gestión de invitados.">
+    <title>Invitados</title>
+    <link rel="stylesheet" href="css/invitados.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a class="header__back" href="panel.html">
+            <span class="header__flecha" aria-hidden="true">&larr;</span>
+            <span class="header__volver">Volver al panel</span>
+        </a>
+        <h1 class="header__title">Invitados</h1>
+    </header>
+
+    <main class="main">
+
+        <section class="main__section" aria-label="Filtros de confirmaciones">
+            <div class="categorias">
+
+                <button class="categoria categoria_activa" type="button" data_filtro="todos">
+                    <span class="categoria__label">Confirmaciones</span>
+                    <span class="categoria__valor" id="cat_total">0</span>
+                    <span class="categoria__pie">Total de invitados</span>
+                </button>
+
+                <button class="categoria" type="button" data_filtro="confirmado">
+                    <span class="categoria__label">Los que asisten</span>
+                    <span class="categoria__valor" id="cat_asiste">0</span>
+                    <span class="categoria__pie">Asistirán al evento</span>
+                </button>
+
+                <button class="categoria" type="button" data_filtro="no_asiste">
+                    <span class="categoria__label">Los que no asisten</span>
+                    <span class="categoria__valor" id="cat_no_asiste">0</span>
+                    <span class="categoria__pie">Respuestas negativas</span>
+                </button>
+
+                <button class="categoria" type="button" data_filtro="pendiente">
+                    <span class="categoria__label">Pendientes</span>
+                    <span class="categoria__valor" id="cat_pendiente">0</span>
+                    <span class="categoria__pie">Invitados sin respuesta</span>
+                </button>
+
+            </div>
+        </section>
+
+        <section class="main__section" aria-label="Filtros de restricción alimenticia">
+            <div class="restricciones" id="restricciones"></div>
+        </section>
+
+        <section class="main__section" aria-label="Buscador y alta de invitados">
+
+            <div class="buscador">
+                <span class="buscador__icono" aria-hidden="true">
+                    <svg class="buscador__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="m21 21-4.3-4.3"/>
+                    </svg>
+                </span>
+                <input class="buscador__input" id="buscador" type="search" placeholder="Buscar invitado..." autocomplete="off">
+            </div>
+
+            <button class="agregar" type="button">+ Agregar invitado</button>
+
+        </section>
+
+        <section class="main__section" aria-label="Listado de invitados">
+
+            <div class="lista" id="lista"></div>
+            <p class="lista__vacio" id="lista_vacio" hidden>No se encontraron invitados.</p>
+
+        </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="lightbox_titulo">
+
+            <div class="lightbox__header">
+                <h2 class="lightbox__titulo" id="lightbox_titulo">Enviar invitación</h2>
+                <button class="lightbox__cerrar" type="button" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div class="lightbox__cuerpo">
+
+                <div class="vista vista_activa" data_vista="inicio">
+                    <p class="lightbox__pregunta">¿Qué tipo de invitación deseas crear?</p>
+                    <button class="lightbox__tipo" type="button" data_abrir="individual">Invitación individual</button>
+                    <button class="lightbox__tipo" type="button" data_abrir="familiar">Invitación familiar</button>
+                </div>
+
+                <form class="vista" data_vista="individual" id="form_individual">
+                    <div class="vista__header">
+                        <h3 class="vista__titulo">Invitación individual</h3>
+                        <button class="vista__btn_mesa" type="button" data_mesa_asignar>Asignar mesa</button>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="ind_cantidad">¿A cuántas personas enviarás esta invitación?</label>
+                        <input class="campo__cantidad" id="ind_cantidad" type="number" min="1" max="5" value="1">
+                    </div>
+
+                    <div id="ind_nombres"></div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="ind_wa">Número de WhatsApp para enviar la invitación *</label>
+                        <input class="campo__input" id="ind_wa" type="tel" placeholder="Ej: 3815411429" required>
+                    </div>
+
+                    <div class="lightbox__acciones">
+                        <button class="lightbox__btn lightbox__btn_cancelar" type="button" data_cancelar>Cancelar</button>
+                        <button class="lightbox__btn lightbox__btn_guardar" type="submit">Guardar y enviar</button>
+                    </div>
+                </form>
+
+                <form class="vista" data_vista="familiar" id="form_familiar">
+                    <div class="vista__header">
+                        <h3 class="vista__titulo">Invitación familiar</h3>
+                        <button class="vista__btn_mesa" type="button" data_mesa_asignar>Asignar mesa</button>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="fam_nombre">Apellido o nombre de la familia *</label>
+                        <input class="campo__input" id="fam_nombre" type="text" required>
+                    </div>
+
+                    <p class="campo__label">Integrantes *</p>
+                    <div class="familiar__integrantes" id="fam_integrantes"></div>
+                    <button class="familiar__agregar" type="button" id="fam_agregar">Agregar integrante</button>
+
+                    <div class="campo">
+                        <label class="campo__label" for="fam_wa">Número de WhatsApp para enviar la invitación *</label>
+                        <input class="campo__input" id="fam_wa" type="tel" placeholder="Ej: 3815411429" required>
+                    </div>
+
+                    <div class="lightbox__acciones">
+                        <button class="lightbox__btn lightbox__btn_cancelar" type="button" data_cancelar>Cancelar</button>
+                        <button class="lightbox__btn lightbox__btn_guardar" type="submit">Enviar invitación</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox lightbox_mesas" id="lightbox_mesas" aria-hidden="true">
+        <div class="lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="mesas_titulo">
+
+            <div class="lightbox__header">
+                <h2 class="lightbox__titulo" id="mesas_titulo">Asignar mesa</h2>
+                <button class="lightbox__cerrar" type="button" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div class="lightbox__cuerpo">
+                <p class="mesas__ayuda">Tocá una mesa para elegirla.</p>
+                <div class="mesas" id="mesas_lista"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="exito" id="exito" aria-hidden="true">
+        <div class="exito__caja">
+            <svg class="exito__svg" viewBox="0 0 52 52" fill="none">
+                <circle class="exito__circulo" cx="26" cy="26" r="24" stroke="currentColor" stroke-width="3"/>
+                <path class="exito__palomita" d="M14 27l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="exito__texto">Mesa asignada</p>
+        </div>
+    </div>
+
+    <script src="js/datos.js"></script>
+    <script src="js/invitados.js"></script>
+
+</body>
+
+</html>

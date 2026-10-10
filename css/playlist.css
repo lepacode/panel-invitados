@@ -1,0 +1,183 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background-color: #fbe3eb;
+    color: #252c48;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.25rem 0.5rem;
+}
+
+.header__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 2rem;
+    background-color: #fdedf4;
+    border: 1px solid #fbd7e5;
+    color: #ec2c87;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.header__back:hover {
+    background-color: #fbd7e5;
+    border-color: #ec2c87;
+    transform: translateX(-2px);
+}
+
+.header__flecha {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.header__volver {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.header__title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.main {
+    padding: 1rem 1.25rem 3rem;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main__section {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.cancion {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 4px 18px rgba(37, 44, 72, 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    animation: fade_slide_in 0.4s ease both;
+}
+
+.cancion:hover {
+    box-shadow: 0 8px 26px rgba(236, 44, 135, 0.12);
+    transform: translateY(-2px);
+}
+
+.cancion + .cancion {
+    margin-top: 0.75rem;
+}
+
+.cancion__top {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 2px solid #f6c9db;
+}
+
+.cancion__nombre {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #252c48;
+}
+
+.cancion__recomendo {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #8a8a8a;
+}
+
+.cancion__detalle {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #4a4a4a;
+    padding-left: 0.25rem;
+}
+
+.cancion__cancion {
+    font-weight: 600;
+    color: #252c48;
+}
+
+.cancion__artista {
+    color: #8a8a8a;
+}
+
+@keyframes fade_slide_in {
+    from {
+        opacity: 0;
+        transform: translateY(0.75rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+
+    .header {
+        padding: 1.5rem 2.5rem 0.5rem;
+    }
+
+    .main {
+        padding: 1.25rem 2.5rem 3rem;
+    }
+
+    .playlist {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .cancion + .cancion {
+        margin-top: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+    }
+}

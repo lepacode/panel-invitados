@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Control de portería para registrar la llegada de los invitados.">
+    <title>Check-in de invitados</title>
+    <link rel="stylesheet" href="css/checkin.css">
+</head>
+
+<body>
+
+    <header class="porteria">
+        <a class="porteria__back" href="panel.html" aria-label="Volver al panel">&larr;</a>
+        <h1 class="porteria__titulo">Control de Portería</h1>
+        <button class="porteria__actualizar" type="button" id="actualizar">Actualizar</button>
+    </header>
+
+    <main class="main">
+
+        <section class="main__section" aria-label="Resumen de llegadas">
+            <div class="stats">
+                <div class="stats__item">
+                    <span class="stats__num" id="stat_faltan">0</span>
+                    <span class="stats__label">Faltan</span>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__num stats__num_ok" id="stat_llegaron">0</span>
+                    <span class="stats__label">Llegaron</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="main__section main__section_buscador" aria-label="Buscar invitado o mesa">
+            <div class="buscador">
+                <span class="buscador__icono" aria-hidden="true">
+                    <svg class="buscador__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="m21 21-4.3-4.3"/>
+                    </svg>
+                </span>
+                <input class="buscador__input" id="buscador" type="search" placeholder="Buscar invitado o mesa..." autocomplete="off">
+            </div>
+        </section>
+
+        <section class="main__section" aria-label="Listado por mesa">
+            <div class="lista" id="lista"></div>
+            <p class="lista__vacio" id="lista_vacio" hidden>No se encontraron invitados.</p>
+        </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="lightbox_titulo">
+            <div class="lightbox__header">
+                <h2 class="lightbox__titulo" id="lightbox_titulo">Confirmar check-in</h2>
+                <button class="lightbox__cerrar" type="button" aria-label="Cerrar">&times;</button>
+            </div>
+            <div class="lightbox__cuerpo">
+                <p class="lightbox__mesa" id="lightbox_mesa"></p>
+                <p class="lightbox__texto" id="lightbox_texto"></p>
+                <div class="lightbox__acciones">
+                    <button class="lightbox__btn lightbox__btn_cancelar" type="button" data_cancelar>Cancelar</button>
+                    <button class="lightbox__btn lightbox__btn_guardar" type="button" id="confirmar">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exito" id="exito" aria-hidden="true">
+        <div class="exito__caja">
+            <svg class="exito__svg" viewBox="0 0 52 52" fill="none">
+                <circle class="exito__circulo" cx="26" cy="26" r="24" stroke="currentColor" stroke-width="3"/>
+                <path class="exito__palomita" d="M14 27l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="exito__texto">Check-in confirmado</p>
+        </div>
+    </div>
+
+    <script src="js/datos.js"></script>
+    <script src="js/checkin.js"></script>
+
+</body>
+
+</html>
